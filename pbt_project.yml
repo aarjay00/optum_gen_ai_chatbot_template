@@ -11,6 +11,22 @@ buildSystemDetails:
   author: null
   createdAt: '2023-10-03 01:38:26'
 pipelines:
+  pipelines/chatbot-live:
+    name: chatbot-live
+    description: ''
+    author: sumitpaul@prophecy.io
+    mode: stream
+    artefactID: ''
+    language: python
+    createdAt: '2023-10-03 11:28:40'
+    datasets:
+      inputs:
+      - datasets/content_vectorized
+      - datasets/get_queries_msk
+      outputs:
+      - datasets/bot_message
+    subgraphs: []
+    dependencies: {}
   pipelines/data_vectorize:
     name: data_vectorize
     description: ''
@@ -26,22 +42,6 @@ pipelines:
       outputs:
       - datasets/content_vectorized
       - datasets/web_vectors
-    subgraphs: []
-    dependencies: {}
-  pipelines/chatbot-live:
-    name: chatbot-live
-    description: ''
-    author: sumitpaul@prophecy.io
-    mode: stream
-    artefactID: ''
-    language: python
-    createdAt: '2023-10-03 11:28:40'
-    datasets:
-      inputs:
-      - datasets/content_vectorized
-      - datasets/get_queries_msk
-      outputs:
-      - datasets/bot_message
     subgraphs: []
     dependencies: {}
 datasets:
@@ -121,10 +121,21 @@ gemContainer:
       category: Machine Learning
       subCategory: ''
       description: null
-      author: sumitpaul@prophecy.io
+      author: rohitjain@prophecy.io
       mode: batch
       files:
       - sumitpaulprophecyioteam_optumgenaichatbottemplate/gems/OpenAISpec.py
+      dependencies:
+      - type: pypi
+        modifiedAt: '2023-11-27T10:10:18.02'
+        package: prophecy-spark-ai
+        name: prophecy-spark-ai
+        description: ''
+        id: nWw4Z
+        createdAt: '2023-11-27T10:10:18.02'
+        entity: Gem
+        addToPipeline: true
+        editable: true
       createdAt: '2023-10-03 10:32:26'
     gems/pinecone:
       name: pinecone
@@ -135,6 +146,7 @@ gemContainer:
       mode: batch
       files:
       - sumitpaulprophecyioteam_optumgenaichatbottemplate/gems/PineconeFormatSpec.py
+      dependencies: null
       createdAt: '2023-10-03 10:33:49'
     gems/PineconeLookup:
       name: PineconeLookup
@@ -145,6 +157,7 @@ gemContainer:
       mode: batch
       files:
       - sumitpaulprophecyioteam_optumgenaichatbottemplate/gems/PineconeLookup.py
+      dependencies: null
       createdAt: '2023-10-03 10:34:45'
     gems/TextProcessing:
       name: TextProcessing
@@ -155,6 +168,7 @@ gemContainer:
       mode: batch
       files:
       - sumitpaulprophecyioteam_optumgenaichatbottemplate/gems/TextProcessing.py
+      dependencies: null
       createdAt: '2023-10-03 10:35:37'
     gems/Watermark:
       name: Watermark
@@ -165,13 +179,16 @@ gemContainer:
       mode: batch
       files:
       - sumitpaulprophecyioteam_optumgenaichatbottemplate/gems/Watermark.py
+      dependencies: null
       createdAt: '2023-10-03 10:38:21'
+  dependencies: null
 functions:
   author: null
   createdAt: '2023-10-03 01:38:26'
   udfs: {}
   udafs: {}
   expressions: {}
+  airflowFunctions: {}
 subgraphs: {}
 sqlModels: {}
 sqlMacros: {}
@@ -181,33 +198,33 @@ sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies:
 - type: pypi
-  id: 8Gc6e
-  name: Prophecy Spark AI (Python)
+  id: nWw4Z
+  name: prophecy-spark-ai
   enabled: false
-  package: prophecy-spark-ai==0.1.8
+  package: prophecy-spark-ai
 projectDependencies:
-  '34937':
-    projectUID: 34937
+  '6':
+    projectUID: 6
     projectName: ProphecyStreamingPython
-    repositoryPath: gitUri=http://gitserver:3000/wD3Rheoe_team_8768/wD3Rheoe_project_34937.git&subPath=
-    version: 0.0.1
-    isDefault: true
-    author: null
-    createdAt: '2023-10-11 14:52:24'
-  '34935':
-    projectUID: 34935
-    projectName: ProphecySparkBasicsPython
-    repositoryPath: gitUri=http://gitserver:3000/wD3Rheoe_team_8768/wD3Rheoe_project_34935.git&subPath=
-    version: 0.0.4
-    isDefault: true
-    author: null
-    createdAt: '2023-10-11 14:52:24'
-  '34936':
-    projectUID: 34936
-    projectName: ProphecyWarehousePython
-    repositoryPath: gitUri=http://gitserver:3000/wD3Rheoe_team_8768/wD3Rheoe_project_34936.git&subPath=
+    repositoryPath: gitUri=http://gitserver:3000/ckxgNxLK_team_4/ckxgNxLK_project_6.git&subPath=
     version: 0.0.2
     isDefault: true
     author: null
-    createdAt: '2023-10-11 14:52:24'
+    createdAt: '2023-11-27 10:07:34'
+  '4':
+    projectUID: 4
+    projectName: ProphecySparkBasicsPython
+    repositoryPath: gitUri=http://gitserver:3000/ckxgNxLK_team_4/ckxgNxLK_project_4.git&subPath=
+    version: 0.0.7
+    isDefault: true
+    author: null
+    createdAt: '2023-11-27 10:07:34'
+  '5':
+    projectUID: 5
+    projectName: ProphecyWarehousePython
+    repositoryPath: gitUri=http://gitserver:3000/ckxgNxLK_team_4/ckxgNxLK_project_5.git&subPath=
+    version: 0.0.2
+    isDefault: true
+    author: null
+    createdAt: '2023-11-27 10:07:34'
 pipelineConfigurations: {}
